@@ -1,19 +1,28 @@
 # Contributing
 
-Welcome! Keep bro-say intentionally tiny, original, and workplace-safe.
+Welcome to DeployAnyway: tools for developers who probably know better. Use Node 22.13+ or 24, create a feature branch and run `npm ci`.
 
-Use Node 22.13+ or 24, create a feature branch, and run `npm ci`.
-Mood intros live in `src/moods.js`. Add tests for new moods or behavior.
-Avoid copying terminal artwork or jokes from other packages.
+Rendering, personas, themes, text handling and CLI orchestration live in separate src modules. The browser uses the same renderer.
 
-Before opening a PR:
+## Original characters
+
+Add one JSON file to src/characters/. Use a unique lowercase slug for name and an art array with 1–20 printable ASCII lines, each at most 64 characters. Escape backslashes in JSON. Draw original artwork; do not copy cowsay assets or other artists. No terminal escapes or executable character definitions.
+
+Run `npm run build` to regenerate the catalog. Tests automatically exercise each character; add an appropriate appearance regression test. Check narrow-width say and think modes. Include authorship/provenance in your PR.
+
+## Checks
 
 ```sh
+npm run build
 npm run format
 npm run lint
 npm run format:check
-npm test
-npm pack --dry-run
+npm run coverage
+npm run test:types
+npm run verify:package
+npm audit
 ```
 
-Describe changes and checks. Discuss larger API changes in an issue first.
+Coverage gates: 90% statements, lines and functions; 85% branches. Test behavior and failures, rather than lowering gates. Archive verification installs a temporary local tarball, fetching public dependencies if needed. It never publishes.
+
+Describe user-visible changes, compatibility and validation. Keep humor workplace-safe and follow CODE_OF_CONDUCT.md. Use SECURITY.md for vulnerability reports. Publishing requires explicit release approval.

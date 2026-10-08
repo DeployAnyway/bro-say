@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Original terminal friends, developer personalities and Unicode-aware speech bubbles. Try the bro-say release candidate."
+    />
+    <title>bro-say · DeployAnyway</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <main>
+      <a href="https://deployanyway.github.io/">DeployAnyway</a>
+      <p class="eyebrow">0.3 RELEASE CANDIDATE · NOT YET ON NPM</p>
+      <h1>Your terminal deserves emotional support.</h1>
+      <p>
+        Original characters. Questionable confidence. Your message stays yours.
+      </p>
+      <form id="controls">
+        <label class="message"
+          >Message<textarea id="message" rows="3" maxlength="2000">
+The deployment succeeded somehow. 👋</textarea>
+        </label>
+        <label>Character<select id="character"></select></label>
+        <label>Personality<select id="mood"></select></label>
+        <label>Theme<select id="theme"></select></label>
+        <label
+          >Mode<select id="mode">
+            <option value="say">Say</option>
+            <option value="think">Think</option>
+          </select></label
+        >
+        <label
+          >Content width<input
+            id="width"
+            type="number"
+            min="8"
+            max="100"
+            value="42"
+        /></label>
+      </form>
+      <p id="status" role="status" aria-live="polite"></p>
+      <div class="terminal">
+        <pre id="output" aria-label="Rendered terminal output"></pre>
+      </div>
+      <button id="copy" type="button">Copy output</button>
+      <p>Runs entirely in your browser. No message is sent anywhere.</p>
+      <p>
+        <a href="https://github.com/DeployAnyway/bro-say/tree/feature/flagship"
+          >Source and candidate instructions</a
+        >
+        · Fonts may disagree on emoji width.
+      </p>
+      <footer>Tools for developers who probably know better.</footer>
+    </main>
+  </body>
+</html>

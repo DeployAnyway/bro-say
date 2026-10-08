@@ -26,5 +26,7 @@ test("box validates type and bounds without restricting existing unboxed message
     () => brosay(Array(100).fill("x").join("\n"), { box: true }),
     RangeError,
   );
-  assert.ok(brosay("x".repeat(201)).includes("x".repeat(201)));
+  assert.ok(
+    brosay("x".repeat(201), { layout: "plain" }).includes("x".repeat(201)),
+  );
 });
