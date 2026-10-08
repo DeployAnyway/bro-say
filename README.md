@@ -10,17 +10,18 @@ The build failed
 
 ## Installation
 
-Version 0.1.0 is not published to npm. Try from source with Node 22 or 24:
+Version 0.1.0 is available on npm. Requires Node 22 or later.
+You can also run from source with Node 22 or 24:
 
 ```sh
 git clone https://github.com/DeployAnyway/bro-say.git
 cd bro-say
-git checkout feature/initial-mvp
+git checkout main
 npm ci
 node bin/cli.js "The build failed"
 ```
 
-After an approved release: `npm install @deployanyway/bro-say`.
+Install from npm: `npm install @deployanyway/bro-say`.
 
 ## Quick start
 
@@ -37,7 +38,7 @@ console.log(brosay("Tests passed!", { mood: "hype" }));
 node bin/cli.js "Tests passed!" --mood hype
 ```
 
-After publication: `npx @deployanyway/bro-say "Tests passed!" --mood hype`.
+Run with npx: `npx @deployanyway/bro-say "Tests passed!" --mood hype`.
 
 ## API and options
 
