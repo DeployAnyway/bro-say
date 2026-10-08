@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.0 — 2026-10-08
+
+- An announcement worth framing: Set `{ box: true }` or CLI `--box` to frame a multiline announcement in an ASCII box. Limits: 200 code points per line, 100 lines including the intro. Padding counts code points; wide emoji, combining marks, tabs and ANSI escape sequences may not align in every terminal.
+- Add npm and CI badges to the published README.
+
 ## 0.1.1 — 2026-10-08
 
 - Correct npm installation and npx documentation after the initial publication.
