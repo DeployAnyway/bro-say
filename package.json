@@ -1,27 +1,53 @@
 {
   "name": "@deployanyway/bro-say",
-  "version": "0.2.0",
-  "description": "A terminal message formatter with six developer moods. Your build output has a hype person now.",
+  "version": "0.3.0",
+  "description": "Original terminal characters, speech and thought bubbles, Unicode-aware wrapping, and developer personalities. Emotional support for production.",
   "type": "module",
-  "exports": "./src/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./browser": {
+      "types": "./index.d.ts",
+      "default": "./dist/browser.js"
+    }
+  },
   "bin": {
-    "bro-say": "./bin/cli.js"
+    "bro-say": "./bin/cli.js",
+    "bro-think": "./bin/think.js"
   },
   "files": [
+    "dist",
     "src",
     "bin",
+    "index.d.ts",
+    "index.d.cts",
     "README.md",
     "LICENSE",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "MIGRATION.md"
   ],
   "engines": {
-    "node": ">=22"
+    "node": ">=22.13"
   },
   "scripts": {
-    "test": "node --test",
+    "test": "node --test test/*.test.js",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "build": "node scripts/build.mjs",
+    "pretest": "npm run build",
+    "coverage": "c8 --all --include=src/**/*.js --exclude=src/characters/index.js --reporter=text --reporter=json-summary --reporter=lcov --check-coverage --lines=90 --statements=90 --functions=90 --branches=85 node --test test/*.test.js",
+    "test:types": "tsc -p tsconfig.json",
+    "verify:package": "node scripts/verify-package.mjs",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -35,8 +61,12 @@
     "access": "public"
   },
   "devDependencies": {
+    "@types/node": "^26.6.4",
+    "c8": "^12.0.0",
+    "esbuild": "^0.28.2",
     "eslint": "^10.12.0",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "typescript": "^7.0.2"
   },
   "keywords": [
     "nodejs",
@@ -46,6 +76,20 @@
     "terminal",
     "message-formatter",
     "developer-humor",
-    "console"
-  ]
+    "console",
+    "ascii-art",
+    "unicode",
+    "speech-bubble",
+    "stdin",
+    "humor",
+    "deployanyway"
+  ],
+  "dependencies": {
+    "string-width": "^8.3.0",
+    "wrap-ansi": "^10.0.2"
+  },
+  "homepage": "https://deployanyway.github.io/",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./index.d.ts"
 }

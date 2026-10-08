@@ -4,4 +4,4 @@ process.stdout.on("error", (error) => {
   if (error.code === "EPIPE") process.exit(0);
   throw error;
 });
-process.exitCode = await runCli(process.argv.slice(2));
+process.exitCode = await runCli(process.argv.slice(2), { think: true });

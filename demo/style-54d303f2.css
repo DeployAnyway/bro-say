@@ -1,0 +1,141 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  background: #f6f1e7;
+  color: #242333;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 960px;
+  padding: 48px 24px;
+  margin: auto;
+}
+a {
+  color: #4c32a2;
+}
+h1 {
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  max-width: 760px;
+  line-height: 1.1;
+}
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  margin-top: 36px;
+}
+form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+.message {
+  grid-column: 1 / -1;
+}
+textarea,
+select,
+input,
+button {
+  font: inherit;
+  padding: 12px;
+  border: 1px solid #aba2bd;
+  border-radius: 8px;
+  min-width: 0;
+}
+textarea {
+  resize: vertical;
+}
+button {
+  background: #5b3dad;
+  color: white;
+  cursor: pointer;
+  margin-top: 18px;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+:focus-visible {
+  outline: 3px solid #12805f;
+  outline-offset: 3px;
+}
+.terminal {
+  background: #22222e;
+  color: #bdeacb;
+  padding: 24px;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+pre {
+  font:
+    14px/1.35 ui-monospace,
+    "Cascadia Code",
+    Consolas,
+    monospace;
+  margin: 0;
+  white-space: pre;
+}
+#status {
+  min-height: 1.5em;
+  color: #7e321e;
+}
+footer {
+  border-top: 1px solid #aba2bd;
+  margin-top: 40px;
+  padding-top: 18px;
+}
+@media (max-width: 600px) {
+  form {
+    grid-template-columns: 1fr 1fr;
+  }
+  main {
+    padding: 24px 16px;
+  }
+  .terminal {
+    padding: 16px;
+  }
+}
+
+.playground {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 24px;
+  align-items: start;
+}
+.playground form {
+  grid-template-columns: 1fr 1fr;
+}
+.preview {
+  min-width: 0;
+}
+h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 18px 0;
+}
+main {
+  max-width: 1100px;
+  padding-top: 30px;
+}
+.eyebrow {
+  margin-top: 22px;
+}
+.preview #status {
+  margin-top: 0;
+}
+@media (max-width: 760px) {
+  .playground {
+    grid-template-columns: 1fr;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}
