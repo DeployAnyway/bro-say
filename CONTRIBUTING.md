@@ -8,7 +8,7 @@ Rendering, personas, themes, text handling and CLI orchestration live in separat
 
 Add one JSON file to src/characters/. Use a unique lowercase slug for name and an art array with 1–20 printable ASCII lines, each at most 64 characters. Escape backslashes in JSON. Draw original artwork; do not copy cowsay assets or other artists. No terminal escapes or executable character definitions.
 
-Run `npm run build` to regenerate the catalog. Tests automatically exercise each character; add an appropriate appearance regression test. Check narrow-width say and think modes. Include authorship/provenance in your PR.
+Run `npm run build` to regenerate the catalog. Tests automatically exercise each character; add an appropriate appearance regression test. Check narrow-width say and think modes. Include authorship/provenance in your PR. Update the declaration union, catalog expectations and help counts when adding built-in names.
 
 ## Checks
 
