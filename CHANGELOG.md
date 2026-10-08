@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0 — unreleased flagship candidate
+## 0.3.0 — 2026-10-08
 
 - 13 original ASCII characters, including the signature husky developer.
 - Say/think, 12 personas, six themes, seeded random and structured renderBro.

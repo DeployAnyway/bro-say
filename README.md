@@ -1,6 +1,6 @@
 # bro-say
 
-[![npm](https://img.shields.io/npm/v/%40deployanyway%2Fbro-say)](https://www.npmjs.com/package/@deployanyway/bro-say) [![CI](https://github.com/DeployAnyway/bro-say/actions/workflows/ci.yml/badge.svg?branch=feature/flagship)](https://github.com/DeployAnyway/bro-say/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/%40deployanyway%2Fbro-say)](https://www.npmjs.com/package/@deployanyway/bro-say) [![CI](https://github.com/DeployAnyway/bro-say/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/DeployAnyway/bro-say/actions/workflows/ci.yml)
 
 Original terminal friends and developer personalities. Emotional support for production, without pretending to fix production.
 
@@ -8,7 +8,7 @@ Original terminal friends and developer personalities. Emotional support for pro
 npx @deployanyway/bro-say "Deploy anyway."
 ```
 
-**Candidate notice:** npm currently serves 0.2.0. This branch prepares 0.3.0: the artwork and features below require this branch until release approval. The command above runs the published plain formatter today.
+**Version 0.3.0:** requires Node 22.13+ or Node 24. See MIGRATION.md for changes from 0.2.0.
 
 ```text
 +----------------+
@@ -35,10 +35,10 @@ Because production errors deserve emotional support. Your message stays yours; t
 
 ## Install
 
-Published package: `npm install -g @deployanyway/bro-say`. For this candidate, use Node 22.13+ or 24:
+Install: `npm install -g @deployanyway/bro-say@0.3.0`. Or run from source with Node 22.13+ or 24:
 
 ```sh
-git clone --branch feature/flagship https://github.com/DeployAnyway/bro-say.git
+git clone --branch main https://github.com/DeployAnyway/bro-say.git
 cd bro-say
 npm ci
 npm run build
@@ -47,7 +47,7 @@ node bin/cli.js "Deploy anyway."
 
 ## 30-second demo
 
-Run these from the candidate checkout:
+Run these from the source checkout:
 
 ```sh
 node bin/cli.js "Tests failed" --character husky --mood corporate
@@ -65,7 +65,7 @@ console.log(brosay("Production is down"));
 console.log(brothink("Read the logs first.", { character: "duck" }));
 ```
 
-Speech uses slash connectors; thoughts use circles. The installed candidate provides bro-say and bro-think; --think is equivalent.
+Speech uses slash connectors; thoughts use circles. The installed package provides bro-say and bro-think; --think is equivalent.
 
 ## Pipe anything into Bro
 
@@ -172,7 +172,7 @@ Run npm run build, serve the checkout with a static HTTP server, and open demo/.
 
 ## Capabilities
 
-| Capability                                    | 0.3 candidate                    |
+| Capability                                    | 0.3.0                            |
 | --------------------------------------------- | -------------------------------- |
 | Speech / thought / stdin                      | Yes                              |
 | Original characters / personas / themes       | 13 / 12 / 6                      |

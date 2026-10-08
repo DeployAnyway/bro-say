@@ -1,4 +1,4 @@
-# 0.3.0 release candidate — not published
+# 0.3.0 — 2026-10-08
 
 ## What's New
 
