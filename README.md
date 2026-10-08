@@ -1,5 +1,8 @@
 # bro-say
 
+[![npm version](https://img.shields.io/npm/v/%40deployanyway%2Fbro-say)](https://www.npmjs.com/package/@deployanyway/bro-say)
+[![CI](https://github.com/DeployAnyway/bro-say/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/DeployAnyway/bro-say/actions/workflows/ci.yml)
+
 A terminal message formatter with six developer moods. Your build output has a hype person now.
 
 ```text
