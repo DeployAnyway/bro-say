@@ -1,7 +1,7 @@
 {
   "name": "@deployanyway/bro-say",
   "version": "0.1.0",
-  "description": "Tiny terminal messages with six workplace-safe bro moods.",
+  "description": "A terminal message formatter with six developer moods. Your build output has a hype person now.",
   "type": "module",
   "exports": "./src/index.js",
   "bin": {
@@ -37,5 +37,15 @@
   "devDependencies": {
     "eslint": "^10.12.0",
     "prettier": "^3.6.2"
-  }
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "cli",
+    "developer-tools",
+    "terminal",
+    "message-formatter",
+    "developer-humor",
+    "console"
+  ]
 }

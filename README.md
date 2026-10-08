@@ -1,6 +1,6 @@
 # bro-say
 
-A tiny message formatter with six workplace-safe terminal personalities.
+A terminal message formatter with six developer moods. Your build output has a hype person now.
 
 ```text
 BRO...
