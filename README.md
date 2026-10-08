@@ -117,3 +117,17 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 - [doggo-log](https://github.com/DeployAnyway/doggo-log)
 - [ship-it-meter](https://github.com/DeployAnyway/ship-it-meter)
 - [bro-say](https://github.com/DeployAnyway/bro-say)
+
+## An announcement worth framing
+
+Set `{ box: true }` or CLI `--box` to frame a multiline announcement in an ASCII box. Limits: 200 code points per line, 100 lines including the intro. Padding counts code points; wide emoji, combining marks, tabs and ANSI escape sequences may not align in every terminal.
+
+```sh
+npx @deployanyway/bro-say "Tests passed!" --mood hype --box
+```
+
+API (import the named functions from this package):
+
+```js
+brosay("Tests passed!", { mood: "hype", box: true });
+```

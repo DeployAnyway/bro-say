@@ -1,6 +1,6 @@
 {
   "name": "@deployanyway/bro-say",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A terminal message formatter with six developer moods. Your build output has a hype person now.",
   "type": "module",
   "exports": "./src/index.js",

@@ -12,11 +12,12 @@ try {
       version: { type: "boolean", short: "v" },
       mood: { type: "string" },
       list: { type: "boolean" },
+      box: { type: "boolean" },
     },
   });
   if (values.help) {
     console.log(
-      'Usage: bro-say <message> [--mood name]\n\nMoods: classic, hype, chill, panic, corporate, coach\nOptions:\n  --mood name    Select a mood (default classic)\n  --list         List moods\n  -h, --help     Show help\n  -v, --version  Show version\n\nExample: bro-say "Tests passed" --mood hype\nExit codes: 0 success; 2 invalid arguments.',
+      'Usage: bro-say <message> [--mood name]\n\nMoods: classic, hype, chill, panic, corporate, coach\nOptions:\n  --mood name    Select a mood (default classic)\n  --box          Frame the announcement in an ASCII box\n  --list         List moods\n  -h, --help     Show help\n  -v, --version  Show version\n\nExample: bro-say "Tests passed" --mood hype\nExit codes: 0 success; 2 invalid arguments.',
     );
   } else if (values.version) {
     console.log(
@@ -25,11 +26,13 @@ try {
       ).version,
     );
   } else if (values.list) {
-    if (positionals.length || values.mood !== undefined)
+    if (positionals.length || values.mood !== undefined || values.box)
       throw new TypeError("--list does not accept a message or mood.");
     console.log(moods().join("\n"));
   } else {
-    console.log(brosay(positionals.join(" "), { mood: values.mood }));
+    console.log(
+      brosay(positionals.join(" "), { mood: values.mood, box: values.box }),
+    );
   }
 } catch (error) {
   console.error(`bro-say: ${error.message}\nRun with --help for usage.`);
