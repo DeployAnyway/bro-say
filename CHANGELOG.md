@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0
+
+- Build Buddy: useful summaries for real scripts.
+- Typed API, CLI integration, runnable codebase example and meaningful workflow tests.
+- Stable contracts and migration guidance; original humor stays around accurate facts.
+
 ## 0.4.0
 
 Twenty personalities now include Dallas, Benji, rubber-duck, on-call, code-review, minimalist, optimist and skeptic. Thirteen original characters and six themes remain. Your own message is never rewritten.

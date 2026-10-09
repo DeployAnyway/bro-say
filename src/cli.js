@@ -8,6 +8,7 @@ import {
   listThemes,
   broMessage,
   messageCategories,
+  renderBuildSummary,
 } from "./index.js";
 
 const help = `bro-say — emotional support for your terminal. Offline. Original. DeployAnyway.
@@ -17,6 +18,7 @@ Usage: bro-say "Deploy anyway." [options]
        bro-think "Maybe not on Friday."
        npm test 2>&1 | bro-say --mood panic
 
+  --summary                Build/test facts as JSON stdin; --plain emits CI text
   --think                  Thought bubble (or use bro-think)
   --character name         Original mascot; default husky
   --mood name              Personality; default classic
@@ -73,6 +75,7 @@ export async function runCli(argv, io = {}) {
         width: { type: "string" },
         seed: { type: "string" },
         preset: { type: "string" },
+        summary: { type: "boolean" },
         "list-presets": { type: "boolean" },
         think: { type: "boolean" },
         random: { type: "boolean" },
@@ -142,6 +145,35 @@ export async function runCli(argv, io = {}) {
       values.width === undefined
         ? Math.max(8, Math.min(48, (stdout.columns ?? 52) - 4))
         : Number(values.width);
+    if (values.summary) {
+      if (
+        positionals.length ||
+        values.preset !== undefined ||
+        values.random ||
+        values.seed !== undefined ||
+        values.box
+      )
+        throw new TypeError(
+          "--summary reads JSON stdin and cannot combine with a message, preset, random selection or box.",
+        );
+      const result = renderBuildSummary(JSON.parse(await readInput(stdin)), {
+        format: values.plain ? "plain" : "character",
+        character: values.character,
+        mood: values.mood,
+        theme: values.theme,
+        width,
+        mode: values.think || io.think ? "think" : "say",
+        wrap: !values["no-wrap"],
+        color:
+          !(values["no-color"] || Object.hasOwn(env, "NO_COLOR")) &&
+          (values.color ?? !!stdout.isTTY),
+      });
+      stdout.write(
+        (values.json ? JSON.stringify(result, null, 2) : result.rendered) +
+          "\n",
+      );
+      return 0;
+    }
     if (values.preset !== undefined && positionals.length)
       throw new TypeError("--preset cannot be combined with a message.");
     const text =

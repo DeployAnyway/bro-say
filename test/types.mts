@@ -30,3 +30,8 @@ import {
 broMessage("husky", { seed: "x" });
 messagePresets("focus");
 messageCategories();
+import { summarizeBuild, renderBuildSummary } from "@deployanyway/bro-say";
+summarizeBuild({ exitCode: 0, tests: { passed: 4, failed: 0 } });
+renderBuildSummary({ exitCode: null }, { format: "plain" });
+// @ts-expect-error exit code must be numeric
+summarizeBuild({ exitCode: "pass" });

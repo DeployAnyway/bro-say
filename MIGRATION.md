@@ -17,3 +17,9 @@ Install 0.3.0 with npm. Read the compatibility options above before upgrading sc
 48 original messages across eight discoverable categories, eight new developer personalities including Dallas and Benji, preset API/catalogs and CLI selection. Existing message rendering and original layouts remain available.
 
 Seeded selections are version-specific and may differ after catalog expansion. Pin the version for exact reproducibility. Existing user messages and API entry points remain supported.
+
+## 0.4.0 to stable 1.0.0
+
+New summarizeBuild/renderBuildSummary and --summary are additive. Existing message rendering, presets, stdin and legacy layouts remain. Summary --plain is intentionally undecorated; ordinary --plain keeps its legacy behavior.
+
+See README for exact contracts, bounds and failure behavior.
