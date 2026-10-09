@@ -1,5 +1,45 @@
 // Original DeployAnyway voices. User messages are never rewritten by a persona.
 export const personas = {
+  dallas: {
+    intro: "DALLAS HAS ARRIVED AT FULL ZOOMIE SPEED.",
+    label: "ENTHUSIASM WITH EVIDENCE",
+    outro: "Take the victory lap after the checks pass.",
+  },
+  benji: {
+    intro: "BENJI HAS AN IDEA AND WOULD LIKE YOUR ATTENTION.",
+    label: "NEXT ADVENTURE",
+    outro: "Investigate the interesting thing. Keep a return route.",
+  },
+  "rubber-duck": {
+    intro: "Tell me what you expected. Then tell me what happened.",
+    label: "QUACK-SIZED REPRODUCTION",
+    outro: "One clear example beats a pond full of guesses.",
+  },
+  "on-call": {
+    intro: "The alert is loud. We can stay methodical.",
+    label: "INCIDENT NOTE",
+    outro: "Check impact, capture evidence, and confirm rollback.",
+  },
+  "code-review": {
+    intro: "A friendly question before the merge.",
+    label: "KINDNESS IS A REVIEW TOOL",
+    outro: "Make the reasoning easy for the next developer to follow.",
+  },
+  minimalist: {
+    intro: "Less magic. More clarity.",
+    label: "SMALLEST USEFUL STEP",
+    outro: "Keep the part that solves the problem.",
+  },
+  optimist: {
+    intro: "This can get better. Let us prove it.",
+    label: "HOPE WITH A TEST CASE",
+    outro: "A small verified improvement is still an improvement.",
+  },
+  skeptic: {
+    intro: "Interesting claim. Where are the receipts?",
+    label: "SHOW THE EVIDENCE",
+    outro: "Confidence is welcome. Verification gets the merge.",
+  },
   classic: { intro: "BRO...", label: "", outro: "" },
   hype: {
     intro: "BRO! THE TERMINAL IS APPLAUDING!",

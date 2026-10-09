@@ -48,7 +48,7 @@ test("default, whitespace, punctuation, multiline and Unicode", () => {
 test("mood list and output are deterministic and independent", () => {
   assert.ok(Object.keys(expected).every((mood) => moods().includes(mood)));
   moods().pop();
-  assert.equal(moods().length, 12);
+  assert.equal(moods().length, 20);
   const options = Object.freeze({ mood: "chill" });
   assert.equal(brosay("same", options), brosay("same", options));
 });
@@ -70,7 +70,7 @@ test("CLI matches API for every mood", () => {
 });
 test("CLI help/version/list, words and dash-prefixed messages", () => {
   assert.ok(cli("--help").stdout.includes("Usage:"));
-  assert.equal(cli("--version").stdout.trim(), "0.3.0");
+  assert.equal(cli("--version").stdout.trim(), "0.4.0");
   assert.deepEqual(cli("--list").stdout.trim().split(/\r?\n/), moods());
   assert.equal(cli("hello", "world").stdout, `${brosay("hello world")}\n`);
   assert.equal(

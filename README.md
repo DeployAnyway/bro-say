@@ -1,5 +1,31 @@
 # bro-say
 
+## Message library and husky voices (0.4.0)
+
+Twenty personalities now include Dallas, Benji, rubber-duck, on-call, code-review, minimalist, optimist and skeptic. Thirteen original characters and six themes remain. Your own message is never rewritten.
+
+A library of 48 original message presets covers deployment, testing, debugging, review, coffee, celebration, husky and focus. Catalog arrays are independent copies; seed selection is repeatable within a package version.
+
+```sh
+npx @deployanyway/bro-say --preset husky --seed demo --mood dallas
+npx @deployanyway/bro-say --preset review --seed demo --think
+npx @deployanyway/bro-say --list-presets
+```
+
+```js
+import {
+  broMessage,
+  messageCategories,
+  messagePresets,
+  brosay,
+} from "@deployanyway/bro-say";
+const message = broMessage("debugging", { seed: "standup" });
+console.log(brosay(message, { character: "duck", mood: "rubber-duck" }));
+console.log(messageCategories(), messagePresets("husky"));
+```
+
+CLI `--preset` supplies a message instead of arguments or stdin. It rejects explicit message arguments; `--seed` can seed presets without `--random`. With both flags, the same seed also chooses unspecified artwork options. Custom character data remains available through the API; ANSI is terminal-specific.
+
 [![npm](https://img.shields.io/npm/v/%40deployanyway%2Fbro-say)](https://www.npmjs.com/package/@deployanyway/bro-say) [![CI](https://github.com/DeployAnyway/bro-say/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/DeployAnyway/bro-say/actions/workflows/ci.yml)
 
 Original terminal friends and developer personalities. Emotional support for production, without pretending to fix production.
@@ -8,7 +34,7 @@ Original terminal friends and developer personalities. Emotional support for pro
 npx @deployanyway/bro-say "Deploy anyway."
 ```
 
-**Version 0.3.0:** requires Node 22.13+ or Node 24. See MIGRATION.md for changes from 0.2.0.
+**Version 0.4.0:** requires Node 22.13+ or Node 24. See MIGRATION.md for changes from 0.2.0.
 
 ```text
 +----------------+
@@ -35,7 +61,7 @@ Because production errors deserve emotional support. Your message stays yours; t
 
 ## Install
 
-Install: `npm install -g @deployanyway/bro-say@0.3.0`. Or run from source with Node 22.13+ or 24:
+Install: `npm install -g @deployanyway/bro-say@0.4.0`. Or run from source with Node 22.13+ or 24:
 
 ```sh
 git clone --branch main https://github.com/DeployAnyway/bro-say.git
@@ -172,10 +198,10 @@ Run npm run build, serve the checkout with a static HTTP server, and open demo/.
 
 ## Capabilities
 
-| Capability                                    | 0.3.0                            |
+| Capability                                    | 0.4.0                            |
 | --------------------------------------------- | -------------------------------- |
 | Speech / thought / stdin                      | Yes                              |
-| Original characters / personas / themes       | 13 / 12 / 6                      |
+| Original characters / personas / themes       | 13 / 20 / 6                      |
 | Grapheme and display-width wrapping           | Yes, with terminal caveats above |
 | Seeded random / JSON / inert custom art       | Yes                              |
 | JavaScript / types / ESM / CommonJS / browser | Yes                              |
@@ -185,7 +211,7 @@ Classic terminal tools inspired the quality benchmark. We make no blanket superi
 
 ## Contributing
 
-[Contribution guide](CONTRIBUTING.md) · [Conduct](CODE_OF_CONDUCT.md) · [Security](SECURITY.md) · [Roadmap](ROADMAP.md) · [Migration](MIGRATION.md). CI tests Node 22/24 on Linux and Node 24 on Windows/macOS, with coverage, types and archive installation. Candidates require explicit release approval.
+[Contribution guide](CONTRIBUTING.md) · [Conduct](CODE_OF_CONDUCT.md) · [Security](SECURITY.md) · [Roadmap](ROADMAP.md) · [Migration](MIGRATION.md). CI tests Node 22/24 on Linux and Node 24 on Windows/macOS, with coverage, types and archive installation. Releases are published after the versioned changes and required checks pass.
 
 ## DeployAnyway ecosystem
 

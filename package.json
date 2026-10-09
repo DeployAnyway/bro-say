@@ -1,6 +1,6 @@
 {
   "name": "@deployanyway/bro-say",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Original terminal characters, speech and thought bubbles, Unicode-aware wrapping, and developer personalities. Emotional support for production.",
   "type": "module",
   "exports": {

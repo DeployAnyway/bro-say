@@ -211,7 +211,7 @@ test("ESM and CommonJS exports agree", () => {
 });
 test("CLI help, version and catalog listing never consume stdin", async () => {
   assert.match((await cli(["--help"])).out, /npm test 2>&1/);
-  assert.match((await cli(["--version"])).out, /0.3.0/);
+  assert.match((await cli(["--version"])).out, /0.4.0/);
   for (const [flag, expected] of [
     ["--list", moods()],
     ["--list-moods", moods()],

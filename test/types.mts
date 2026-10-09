@@ -22,3 +22,11 @@ brosay("x", { character: "copied-cow" });
 brosay("x", { width: "30" });
 // @ts-expect-error message required
 renderBro({ mood: "panic" });
+import {
+  broMessage,
+  messagePresets,
+  messageCategories,
+} from "@deployanyway/bro-say";
+broMessage("husky", { seed: "x" });
+messagePresets("focus");
+messageCategories();
