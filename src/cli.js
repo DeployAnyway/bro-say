@@ -1,7 +1,14 @@
 import { parseArgs } from "node:util";
 import { readFileSync } from "node:fs";
 import { URL } from "node:url";
-import { renderBro, listCharacters, moods, listThemes } from "./index.js";
+import {
+  renderBro,
+  listCharacters,
+  moods,
+  listThemes,
+  broMessage,
+  messageCategories,
+} from "./index.js";
 
 const help = `bro-say — emotional support for your terminal. Offline. Original. DeployAnyway.
 
@@ -18,6 +25,8 @@ Usage: bro-say "Deploy anyway." [options]
   --no-wrap                Preserve long lines
   --color / --no-color     Force/disable ANSI; NO_COLOR always wins
   --random [--seed text]   Choose unspecified character, mood, theme
+  --preset category        Original message; --seed makes selection repeatable
+  --list-presets           Show message categories
   --json                   Structured result
   --plain / --box          0.2 intro/message layout or legacy frame
   --list-characters        Show 13 original characters
@@ -30,7 +39,8 @@ Arguments take precedence over stdin. Without arguments, read piped/redirected
 input (maximum 256 KiB). Empty/invalid input exits 2; successful rendering exits 0.
 Characters: husky, duck, robot, coffee, laptop, server, bug, rocket, and friends.
 Moods: classic, hype, chill, panic, corporate, coach, senior-dev, intern,
-       dramatic, sarcastic, motivational, friday.
+       dramatic, sarcastic, motivational, friday, dallas, benji, rubber-duck,
+       on-call, code-review, minimalist, optimist, skeptic.
 Themes: classic, minimal, neon, retro, hacker, corporate.
 `;
 async function readInput(stream) {
@@ -62,6 +72,8 @@ export async function runCli(argv, io = {}) {
         theme: { type: "string" },
         width: { type: "string" },
         seed: { type: "string" },
+        preset: { type: "string" },
+        "list-presets": { type: "boolean" },
         think: { type: "boolean" },
         random: { type: "boolean" },
         json: { type: "boolean" },
@@ -92,6 +104,7 @@ export async function runCli(argv, io = {}) {
       values.list || values["list-moods"],
       values["list-characters"],
       values["list-themes"],
+      values["list-presets"],
     ];
     if (listing.some(Boolean)) {
       if (
@@ -99,9 +112,13 @@ export async function runCli(argv, io = {}) {
         positionals.length ||
         Object.keys(values).some(
           (key) =>
-            !["list", "list-moods", "list-characters", "list-themes"].includes(
-              key,
-            ),
+            ![
+              "list",
+              "list-moods",
+              "list-characters",
+              "list-themes",
+              "list-presets",
+            ].includes(key),
         )
       )
         throw new TypeError(
@@ -112,7 +129,9 @@ export async function runCli(argv, io = {}) {
           ? moods()
           : listing[1]
             ? listCharacters()
-            : listThemes()
+            : listing[2]
+              ? listThemes()
+              : messageCategories()
         ).join("\n") + "\n",
       );
       return 0;
@@ -123,16 +142,22 @@ export async function runCli(argv, io = {}) {
       values.width === undefined
         ? Math.max(8, Math.min(48, (stdout.columns ?? 52) - 4))
         : Number(values.width);
-    const text = positionals.length
-      ? positionals.join(" ")
-      : await readInput(stdin);
+    if (values.preset !== undefined && positionals.length)
+      throw new TypeError("--preset cannot be combined with a message.");
+    const text =
+      values.preset !== undefined
+        ? broMessage(values.preset, { seed: values.seed })
+        : positionals.length
+          ? positionals.join(" ")
+          : await readInput(stdin);
     const result = renderBro({
       text,
       character: values.character,
       mood: values.mood,
       theme: values.theme,
       width,
-      seed: values.seed,
+      seed:
+        values.preset !== undefined && !values.random ? undefined : values.seed,
       random: values.random,
       mode: values.think || io.think ? "think" : "say",
       color:

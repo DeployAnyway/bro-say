@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+Twenty personalities now include Dallas, Benji, rubber-duck, on-call, code-review, minimalist, optimist and skeptic. Thirteen original characters and six themes remain. Your own message is never rewritten.
+
+A library of 48 original message presets covers deployment, testing, debugging, review, coffee, celebration, husky and focus. Catalog arrays are independent copies; seed selection is repeatable within a package version.
+
 ## 0.3.0 — 2026-10-08
 
 - 13 original ASCII characters, including the signature husky developer.

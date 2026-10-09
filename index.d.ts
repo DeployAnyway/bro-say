@@ -24,7 +24,15 @@ export type Mood =
   | "dramatic"
   | "sarcastic"
   | "motivational"
-  | "friday";
+  | "friday"
+  | "dallas"
+  | "benji"
+  | "rubber-duck"
+  | "on-call"
+  | "code-review"
+  | "minimalist"
+  | "optimist"
+  | "skeptic";
 export type Theme =
   "classic" | "minimal" | "neon" | "retro" | "hacker" | "corporate";
 export interface Character {
@@ -61,3 +69,19 @@ export function listCharacters(): CharacterName[];
 export function moods(): Mood[];
 export function listThemes(): Theme[];
 export function displayWidth(text: string): number;
+
+export type MessageCategory =
+  | "deployment"
+  | "testing"
+  | "debugging"
+  | "review"
+  | "coffee"
+  | "celebration"
+  | "husky"
+  | "focus";
+export function messageCategories(): MessageCategory[];
+export function messagePresets(category: MessageCategory): string[];
+export function broMessage(
+  category?: MessageCategory,
+  options?: { seed?: string | number },
+): string;

@@ -11,3 +11,9 @@ Messages retain internal whitespace, after CRLF normalization and tabs expanded 
 Input is bounded: 262144 UTF-16 code units for the API, 256 KiB for stdin, and 4096 rendered bubble lines. Legacy boxes retain their 200-column / 100-line bounds. `--no-wrap` can create wide output. Argument messages take precedence over stdin. Empty or invalid CLI input exits 2 and reports to stderr; success exits 0. Broken output pipes exit quietly.
 
 Install 0.3.0 with npm. Read the compatibility options above before upgrading scripts that compare exact output.
+
+## 0.3.0 to 0.4.0
+
+48 original messages across eight discoverable categories, eight new developer personalities including Dallas and Benji, preset API/catalogs and CLI selection. Existing message rendering and original layouts remain available.
+
+Seeded selections are version-specific and may differ after catalog expansion. Pin the version for exact reproducibility. Existing user messages and API entry points remain supported.

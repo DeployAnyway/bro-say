@@ -1,29 +1,9 @@
-# 0.3.0 — 2026-10-08
+# 0.4.0 — 2026-10-08
 
-## What's New
+48 original messages across eight discoverable categories, eight new developer personalities including Dallas and Benji, preset API/catalogs and CLI selection. Existing message rendering and original layouts remain available.
 
-An original terminal character system with composable personalities and themes. Default output now uses the husky developer, rather than an unframed intro.
+Requires Node 22.13+ or 24. See README for copyable CLI and API examples. All required source, type, coverage and installed archive checks passed locally; CI must pass on the final PR head before merging. Original content, MIT code, no backend calls from the libraries.
 
-## New Characters
+## Compatibility
 
-bro, bug, coffee, developer, duck, dumpster-fire, husky, intern, laptop, robot, rocket, server, wizard. All are original printable ASCII data files.
-
-## New Moods
-
-senior-dev, intern, dramatic, sarcastic, motivational, friday join classic, hype, chill, panic, corporate and coach. Personas add recognizable labels and follow-up advice while preserving the input message.
-
-## CLI Improvements
-
-bro-think, stdin and file redirection, terminal-aware wrapping, explicit width/no-wrap, safe ANSI handling, NO_COLOR, themes, seeded random selection, catalogs and structured JSON.
-
-## Developer API
-
-brothink, renderBro, listCharacters, listThemes, displayWidth, custom inert character data, TypeScript unions, ESM/CommonJS and a browser entry.
-
-## Quality Improvements
-
-Coverage gates, installed-package verification, declaration checks, cross-platform CI and third-party license attribution. See the candidate quality report for exact results.
-
-## Breaking Changes
-
-Default output, wrapping, bounded inputs and terminal-control normalization changed. Node 22.13+ is required. See MIGRATION.md; --plain and --box retain the original six mood layouts.
+Expanded catalogs can change seeded choices from 0.3.0. Pin the version when exact output matters; selection is repeatable within this release.
