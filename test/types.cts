@@ -5,3 +5,5 @@ bro.brothink("Hello", { mood: "unknown" });
 bro.broMessage("husky", { seed: "demo" });
 bro.messagePresets("focus");
 bro.messageCategories();
+import summary = require("@deployanyway/bro-say");
+summary.renderBuildSummary({ exitCode: 1 }).summary.text;

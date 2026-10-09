@@ -108,7 +108,7 @@ try {
   );
   writeFileSync(
     join(temp, "types.mts"),
-    'import {brosay, renderBro} from "@deployanyway/bro-say"; const s:string=brosay("hello",{character:"husky"}); renderBro({text:s,mode:"think"});\n// @ts-expect-error invalid character\nbrosay("x",{character:"cow"});',
+    'import {renderBuildSummary, summarizeBuild, brosay, renderBro} from "@deployanyway/bro-say"; renderBuildSummary({exitCode:1},{format:"plain"}); summarizeBuild({tests:{passed:1,failed:0}}); const s:string=brosay("hello",{character:"husky"}); renderBro({text:s,mode:"think"});\n// @ts-expect-error invalid character\nbrosay("x",{character:"cow"});',
   );
   writeFileSync(
     join(temp, "types.cts"),
@@ -128,6 +128,28 @@ try {
       "types.cts",
     ],
     temp,
+  );
+  assert.ok(
+    pack.files.some((f) => f.path === "examples/build-buddy.mjs"),
+    "Runnable example must ship",
+  );
+  assert.equal(
+    run(
+      [
+        "--input-type=module",
+        "-e",
+        "import * as api from '@deployanyway/bro-say';const r=api.renderBuildSummary({exitCode:1,tests:{passed:2,failed:1}},{format:'plain'}); if(r.status!=='failed')throw new Error('Summary lost failure'); console.log(JSON.stringify(r));",
+      ],
+      temp,
+    ),
+    run(
+      [
+        "--input-type=commonjs",
+        "-e",
+        "const api=require('@deployanyway/bro-say');const r=api.renderBuildSummary({exitCode:1,tests:{passed:2,failed:1}},{format:'plain'}); if(r.status!=='failed')throw new Error('Summary lost failure'); console.log(JSON.stringify(r));",
+      ],
+      temp,
+    ),
   );
   console.log(
     JSON.stringify(

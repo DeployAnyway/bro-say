@@ -85,3 +85,26 @@ export function broMessage(
   category?: MessageCategory,
   options?: { seed?: string | number },
 ): string;
+export interface BuildInput {
+  label?: string;
+  commit?: string;
+  exitCode?: number | null;
+  durationMs?: number;
+  tests?: { passed: number; failed: number; skipped?: number };
+  failures?: string[];
+}
+export interface BuildSummary {
+  label: string;
+  status: "passed" | "failed" | "unknown";
+  commit?: string;
+  exitCode?: number | null;
+  durationMs?: number;
+  tests?: { passed: number; failed: number; skipped: number };
+  failures: string[];
+  text: string;
+}
+export function summarizeBuild(input?: BuildInput): BuildSummary;
+export function renderBuildSummary(
+  input?: BuildInput,
+  options?: BroOptions & { format?: "character" | "plain" },
+): { status: BuildSummary["status"]; summary: BuildSummary; rendered: string };

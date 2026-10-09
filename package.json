@@ -1,7 +1,7 @@
 {
   "name": "@deployanyway/bro-say",
-  "version": "0.4.0",
-  "description": "Original terminal characters, speech and thought bubbles, Unicode-aware wrapping, and developer personalities. Emotional support for production.",
+  "version": "1.0.0",
+  "description": "Build/test summaries, original terminal characters and Unicode speech bubbles. Emotional support for production, with receipts.",
   "type": "module",
   "exports": {
     ".": {
@@ -32,7 +32,8 @@
     "README.md",
     "LICENSE",
     "CHANGELOG.md",
-    "MIGRATION.md"
+    "MIGRATION.md",
+    "examples"
   ],
   "engines": {
     "node": ">=22.13"
@@ -82,7 +83,9 @@
     "speech-bubble",
     "stdin",
     "humor",
-    "deployanyway"
+    "deployanyway",
+    "build-summary",
+    "test-results"
   ],
   "dependencies": {
     "string-width": "^8.3.0",

@@ -70,7 +70,7 @@ test("CLI matches API for every mood", () => {
 });
 test("CLI help/version/list, words and dash-prefixed messages", () => {
   assert.ok(cli("--help").stdout.includes("Usage:"));
-  assert.equal(cli("--version").stdout.trim(), "0.4.0");
+  assert.equal(cli("--version").stdout.trim(), "1.0.0");
   assert.deepEqual(cli("--list").stdout.trim().split(/\r?\n/), moods());
   assert.equal(cli("hello", "world").stdout, `${brosay("hello world")}\n`);
   assert.equal(
